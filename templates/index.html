@@ -1,0 +1,349 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AirPrint Web Interface</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 20px; background-color: #f8f9fa; }
+        .container { max-width: 800px; margin: 0 auto; background-color: white; padding: 20px; border-radius: 5px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        h1 { color: #333; margin-top: 0; }
+        .form-group { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 5px; font-weight: bold; }
+        button { padding: 10px; background-color: #4CAF50; color: white; border: none; cursor: pointer; border-radius: 4px; }
+        button:hover { background-color: #45a049; }
+        select, input[type="file"] { padding: 8px; width: 100%; border: 1px solid #ddd; border-radius: 4px; }
+        .button-row { display: flex; gap: 10px; margin-top: 5px; }
+        .secondary-button { background-color: #2196F3; }
+        .secondary-button:hover { background-color: #0b7dda; }
+        #message { margin-top: 20px; padding: 10px; background-color: #f8f8f8; border-left: 4px solid #4CAF50; display: none; }
+        .status-indicator { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 5px; }
+        .status-good { background-color: #4CAF50; }
+        .status-bad { background-color: #f44336; }
+        .status-unknown { background-color: #9e9e9e; }
+        .printer-status { display: flex; align-items: center; margin-left: 10px; font-size: 0.9em; }
+        .static-printer-info { background-color: #f0f7ff; padding: 10px; border-radius: 4px; margin-bottom: 15px; }
+        .tab-container { border-bottom: 1px solid #ddd; margin-bottom: 15px; }
+        .tab-button { background: none; border: none; padding: 10px 15px; cursor: pointer; font-size: 16px; }
+        .tab-button.active { border-bottom: 2px solid #4CAF50; font-weight: bold; }
+        .tab-panel { display: none; }
+        .tab-panel.active { display: block; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>AirPrint Web Interface</h1>
+        
+        <div class="static-printer-info">
+            <p><strong>Default Printer:</strong> RICOH_MP_C3003__002673B8A832_</p>
+            <p><strong>IP Address:</strong> 2.tcp.ngrok.io:16344</p>   <!-- changed -->
+            <div id="defaultPrinterStatus" class="printer-status">
+                <span class="status-indicator status-unknown"></span>
+                <span>Status unknown</span>
+            </div>
+            <button type="button" id="testDefaultPrinter" class="secondary-button">Test Connection</button>
+        </div>
+
+        <div class="tab-container">
+            <button type="button" class="tab-button active" data-tab="quick-print">Quick Print</button>
+            <button type="button" class="tab-button" data-tab="advanced-print">Advanced Print</button>
+        </div>
+
+        <div id="quick-print" class="tab-panel active">
+            <form id="quickPrintForm" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="quickFile">Select File to Print:</label>
+                    <input type="file" id="quickFile" name="file" required>
+                </div>
+                <button type="submit">Print Document</button>
+            </form>
+        </div>
+
+        <div id="advanced-print" class="tab-panel">
+            <form id="advancedPrintForm" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="file">Select File to Print:</label>
+                    <input type="file" id="file" name="file" required>
+                </div>
+                <div class="form-group">
+                    <label for="printer">Select Printer:</label>
+                    <div style="display: flex; align-items: center;">
+                        <div style="flex-grow: 1;">
+                            <select id="printer" name="printer" required>
+                                <option value="">Loading printers...</option>
+                            </select>
+                        </div>
+                        <div id="printerStatus" class="printer-status">
+                            <span class="status-indicator status-unknown"></span>
+                            <span>Status unknown</span>
+                        </div>
+                    </div>
+                    <div class="button-row">
+                        <button type="button" id="refreshPrinters" class="secondary-button">Refresh Printers</button>
+                        <button type="button" id="testPrinter" class="secondary-button">Test Connection</button>
+                        <button type="button" id="testPrint" class="secondary-button">Test Print</button>
+                    </div>
+                </div>
+                <button type="submit">Print Document</button>
+            </form>
+        </div>
+        <div id="message"></div>
+        <div style="margin-top: 20px; font-size: 0.9em; color: #666;">
+            <p><strong>Troubleshooting:</strong></p>
+            <ul>
+                <li>Make sure your printer is turned on and connected to the same network</li>
+                <li>Use the "Test Connection" button to check if your printer is reachable</li>
+                <li>Check the printer's own status panel for any errors</li>
+                <li>Restart both the printer and this application if problems persist</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Tab functionality
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const tabPanels = document.querySelectorAll('.tab-panel');
+            
+            tabButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const targetTab = this.getAttribute('data-tab');
+                    
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    tabPanels.forEach(panel => panel.classList.remove('active'));
+                    
+                    this.classList.add('active');
+                    document.getElementById(targetTab).classList.add('active');
+                });
+            });
+            
+            // Test default printer connection
+            testDefaultPrinterConnection();
+            document.getElementById('testDefaultPrinter').addEventListener('click', testDefaultPrinterConnection);
+            
+            // Quick print form
+            document.getElementById('quickPrintForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const formData = new FormData();
+                const fileInput = document.getElementById('quickFile');
+                
+                if (fileInput.files.length === 0) {
+                    showMessage('Please select a file', 'error');
+                    return;
+                }
+                
+                formData.append('file', fileInput.files[0]);
+                
+                showMessage('Uploading and printing...', 'info');
+                
+                fetch('/print_direct', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        showMessage(data.message, 'success');
+                        document.getElementById('quickPrintForm').reset();
+                    } else {
+                        showMessage('Print job failed: ' + data.message, 'error');
+                    }
+                })
+                .catch(error => {
+                    showMessage('Error: ' + error, 'error');
+                });
+            });
+            
+            // Advanced tab functionality
+            loadPrinters();
+            document.getElementById('refreshPrinters').addEventListener('click', loadPrinters);
+            
+            document.getElementById('testPrinter').addEventListener('click', function() {
+                const printerSelect = document.getElementById('printer');
+                if (!printerSelect.value) {
+                    showMessage('Please select a printer first', 'error');
+                    return;
+                }
+                
+                showMessage('Testing connection to printer...', 'info');
+                
+                fetch('/test_printer/' + encodeURIComponent(printerSelect.value))
+                    .then(response => response.json())
+                    .then(data => {
+                        const printerStatus = document.getElementById('printerStatus');
+                        const statusIndicator = printerStatus.querySelector('.status-indicator');
+                        const statusText = printerStatus.querySelector('span:not(.status-indicator)');
+                        
+                        if (data.success) {
+                            statusIndicator.className = 'status-indicator status-good';
+                            statusText.textContent = 'Connected';
+                            showMessage('Printer connection successful', 'success');
+                        } else {
+                            statusIndicator.className = 'status-indicator status-bad';
+                            statusText.textContent = 'Connection failed';
+                            showMessage('Printer connection failed: ' + data.message, 'error');
+                        }
+                    })
+                    .catch(error => {
+                        showMessage('Error testing connection: ' + error, 'error');
+                    });
+            });
+            
+            document.getElementById('testPrint').addEventListener('click', function() {
+                const printerSelect = document.getElementById('printer');
+                if (!printerSelect.value) {
+                    showMessage('Please select a printer first', 'error');
+                    return;
+                }
+                
+                showMessage('Sending test print...', 'info');
+                
+                const formData = new FormData();
+                formData.append('printer', printerSelect.value);
+                
+                fetch('/test_print', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        showMessage('Test print sent! Check your printer.', 'success');
+                    } else {
+                        showMessage('Test print failed: ' + data.message, 'error');
+                    }
+                })
+                .catch(error => {
+                    showMessage('Error sending test print: ' + error, 'error');
+                });
+            });
+            
+            document.getElementById('advancedPrintForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const formData = new FormData();
+                const fileInput = document.getElementById('file');
+                const printerSelect = document.getElementById('printer');
+                
+                if (fileInput.files.length === 0) {
+                    showMessage('Please select a file', 'error');
+                    return;
+                }
+                
+                if (!printerSelect.value) {
+                    showMessage('Please select a printer', 'error');
+                    return;
+                }
+                
+                formData.append('file', fileInput.files[0]);
+                formData.append('printer', printerSelect.value);
+                
+                showMessage('Uploading and printing...', 'info');
+                
+                fetch('/upload', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        showMessage(data.message, 'success');
+                        document.getElementById('advancedPrintForm').reset();
+                    } else {
+                        showMessage('Print job failed: ' + data.message, 'error');
+                    }
+                })
+                .catch(error => {
+                    showMessage('Error: ' + error, 'error');
+                });
+            });
+        });
+        
+        function testDefaultPrinterConnection() {
+            const printerName = "RICOH_MP_C3003__002673B8A832_";
+            const statusContainer = document.getElementById('defaultPrinterStatus');
+            const statusIndicator = statusContainer.querySelector('.status-indicator');
+            const statusText = statusContainer.querySelector('span:not(.status-indicator)');
+            
+            statusIndicator.className = 'status-indicator status-unknown';
+            statusText.textContent = 'Checking connection...';
+            
+            fetch('/test_printer/' + encodeURIComponent(printerName))
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        statusIndicator.className = 'status-indicator status-good';
+                        statusText.textContent = 'Connected';
+                        showMessage('Default printer connection successful', 'success');
+                    } else {
+                        statusIndicator.className = 'status-indicator status-bad';
+                        statusText.textContent = 'Connection failed';
+                        showMessage('Default printer connection failed: ' + data.message, 'error');
+                    }
+                })
+                .catch(error => {
+                    statusIndicator.className = 'status-indicator status-bad';
+                    statusText.textContent = 'Error';
+                    showMessage('Error testing default printer: ' + error, 'error');
+                });
+        }
+        
+        function loadPrinters() {
+            const printerSelect = document.getElementById('printer');
+            printerSelect.innerHTML = '<option value="">Loading printers...</option>';
+            
+            const printerStatus = document.getElementById('printerStatus');
+            const statusIndicator = printerStatus.querySelector('.status-indicator');
+            const statusText = printerStatus.querySelector('span:not(.status-indicator)');
+            
+            statusIndicator.className = 'status-indicator status-unknown';
+            statusText.textContent = 'Status unknown';
+            
+            fetch('/discover_printers')
+                .then(response => response.json())
+                .then(printers => {
+                    printerSelect.innerHTML = '';
+                    if (printers.length === 0) {
+                        printerSelect.innerHTML = '<option value="">No printers found</option>';
+                        showMessage('No printers found on the network.', 'error');
+                    } else {
+                        // Add static printer first with special styling
+                        printers.forEach(printer => {
+                            const option = document.createElement('option');
+                            option.value = printer.name;
+                            
+                            if (printer.is_static) {
+                                option.textContent = printer.name + ' (Default)';
+                                option.selected = true;
+                            } else {
+                                option.textContent = printer.name;
+                            }
+                            
+                            printerSelect.appendChild(option);
+                        });
+                        showMessage('Found ' + printers.length + ' printer(s)', 'success');
+                    }
+                })
+                .catch(error => {
+                    printerSelect.innerHTML = '<option value="">Error loading printers</option>';
+                    showMessage('Error discovering printers: ' + error, 'error');
+                });
+        }
+        
+        function showMessage(message, type) {
+            const messageDiv = document.getElementById('message');
+            messageDiv.textContent = message;
+            messageDiv.style.display = 'block';
+            
+            // Set color based on message type
+            if (type === 'error') {
+                messageDiv.style.borderLeftColor = '#f44336';
+            } else if (type === 'success') {
+                messageDiv.style.borderLeftColor = '#4CAF50';
+            } else {
+                messageDiv.style.borderLeftColor = '#2196F3';
+            }
+        }
+    </script>
+</body>
+</html>

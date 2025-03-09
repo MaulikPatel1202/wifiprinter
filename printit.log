@@ -1,0 +1,516 @@
+2025-03-06 17:49:21,125 - werkzeug - WARNING -  * Debugger is active!
+2025-03-06 17:49:21,132 - werkzeug - INFO -  * Debugger PIN: 784-444-945
+2025-03-06 17:49:23,918 - werkzeug - INFO -  * Detected change in '/Users/maulikpatel/WifiPrinter/printit.py', reloading
+2025-03-06 17:49:25,503 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8000
+ * Running on http://192.168.2.61:8000
+2025-03-06 17:49:25,503 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-03-06 17:49:25,503 - werkzeug - INFO -  * Restarting with stat
+2025-03-06 17:49:25,623 - werkzeug - WARNING -  * Debugger is active!
+2025-03-06 17:49:25,627 - werkzeug - INFO -  * Debugger PIN: 784-444-945
+2025-03-06 17:49:32,191 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 17:49:32] "GET / HTTP/1.1" 200 -
+2025-03-06 17:49:32,235 - asyncio - DEBUG - Using selector: KqueueSelector
+2025-03-06 17:49:32,553 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 17:49:32] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-03-06 17:49:35,247 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 17:49:35] "GET /discover_printers HTTP/1.1" 200 -
+2025-03-06 17:49:55,964 - asyncio - DEBUG - Using selector: KqueueSelector
+2025-03-06 17:49:58,969 - __main__ - DEBUG - Testing connection to printer at 192.168.2.55:631
+2025-03-06 17:49:58,973 - __main__ - DEBUG - Connection successful
+2025-03-06 17:49:58,974 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 17:49:58] "GET /test_printer/RICOH%20MP%20C3003%20[002673B8A832] HTTP/1.1" 200 -
+2025-03-06 17:50:02,535 - __main__ - DEBUG - File saved to /var/folders/fc/spkfv8c979s35ntl2cgd6cc40000gn/T/printit_uploads/6f6d5d87-b598-4913-8de0-529a9cdf8145.png
+2025-03-06 17:50:02,537 - asyncio - DEBUG - Using selector: KqueueSelector
+2025-03-06 17:50:05,546 - __main__ - DEBUG - Testing connection to printer at 192.168.2.55:631
+2025-03-06 17:50:05,552 - __main__ - DEBUG - Connection successful
+2025-03-06 17:50:05,552 - __main__ - DEBUG - Attempting to print /var/folders/fc/spkfv8c979s35ntl2cgd6cc40000gn/T/printit_uploads/6f6d5d87-b598-4913-8de0-529a9cdf8145.png to RICOH MP C3003 [002673B8A832]
+2025-03-06 17:50:05,553 - __main__ - DEBUG - Running command: lpr -P RICOH MP C3003 [002673B8A832] /var/folders/fc/spkfv8c979s35ntl2cgd6cc40000gn/T/printit_uploads/6f6d5d87-b598-4913-8de0-529a9cdf8145.png
+2025-03-06 17:50:05,863 - __main__ - ERROR - Unexpected error printing document: Command '['lpr', '-P', 'RICOH MP C3003 [002673B8A832]', '/var/folders/fc/spkfv8c979s35ntl2cgd6cc40000gn/T/printit_uploads/6f6d5d87-b598-4913-8de0-529a9cdf8145.png']' returned non-zero exit status 1.
+Traceback (most recent call last):
+  File "/Users/maulikpatel/WifiPrinter/printit.py", line 72, in print_to_airprint
+    result = subprocess.run(cmd, capture_output=True, text=True, check=True)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/subprocess.py", line 528, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['lpr', '-P', 'RICOH MP C3003 [002673B8A832]', '/var/folders/fc/spkfv8c979s35ntl2cgd6cc40000gn/T/printit_uploads/6f6d5d87-b598-4913-8de0-529a9cdf8145.png']' returned non-zero exit status 1.
+2025-03-06 17:50:05,866 - __main__ - WARNING - Print job failed: Unexpected error printing document: Command '['lpr', '-P', 'RICOH MP C3003 [002673B8A832]', '/var/folders/fc/spkfv8c979s35ntl2cgd6cc40000gn/T/printit_uploads/6f6d5d87-b598-4913-8de0-529a9cdf8145.png']' returned non-zero exit status 1.
+2025-03-06 17:50:05,866 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 17:50:05] "POST /upload HTTP/1.1" 200 -
+2025-03-06 18:00:51,423 - werkzeug - WARNING -  * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+2025-03-06 18:00:51,423 - werkzeug - INFO -  * Running on http://192.168.2.61:8000/ (Press CTRL+C to quit)
+2025-03-06 18:00:51,423 - werkzeug - INFO -  * Restarting with stat
+2025-03-06 18:00:51,531 - werkzeug - WARNING -  * Debugger is active!
+2025-03-06 18:00:51,536 - werkzeug - INFO -  * Debugger PIN: 472-275-242
+2025-03-06 18:00:57,330 - werkzeug - INFO - 192.168.2.61 - - [06/Mar/2025 18:00:57] "GET / HTTP/1.1" 200 -
+2025-03-06 18:00:57,437 - asyncio - DEBUG - Using selector: KqueueSelector
+2025-03-06 18:00:57,851 - werkzeug - INFO - 192.168.2.61 - - [06/Mar/2025 18:00:57] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-03-06 18:01:00,448 - werkzeug - INFO - 192.168.2.61 - - [06/Mar/2025 18:01:00] "GET /discover_printers HTTP/1.1" 200 -
+2025-03-06 18:01:07,997 - asyncio - DEBUG - Using selector: KqueueSelector
+2025-03-06 18:01:11,006 - __main__ - DEBUG - Testing connection to printer at 127.0.0.1:631
+2025-03-06 18:01:11,007 - __main__ - DEBUG - Connection successful
+2025-03-06 18:01:11,008 - werkzeug - INFO - 192.168.2.61 - - [06/Mar/2025 18:01:11] "GET /test_printer/Brother%20DCP-L2550DW%20series%20%40%20Maulik’s%20MacBook%20Pro HTTP/1.1" 200 -
+2025-03-06 18:01:11,323 - asyncio - DEBUG - Using selector: KqueueSelector
+2025-03-06 18:01:13,191 - __main__ - DEBUG - File saved to /var/folders/fc/spkfv8c979s35ntl2cgd6cc40000gn/T/printit_uploads/fb0434c9-ceac-496e-99f8-b66eb839bad4.jpeg
+2025-03-06 18:01:13,191 - __main__ - DEBUG - File size: 1941581 bytes
+2025-03-06 18:01:13,191 - __main__ - DEBUG - File is readable
+2025-03-06 18:01:13,192 - __main__ - INFO - Starting print job: File=fb0434c9-ceac-496e-99f8-b66eb839bad4.jpeg (1941581 bytes), Printer=RICOH MP C3003 [002673B8A832]
+2025-03-06 18:01:13,194 - asyncio - DEBUG - Using selector: KqueueSelector
+2025-03-06 18:01:14,332 - __main__ - DEBUG - Testing connection to printer at 192.168.2.55:631
+2025-03-06 18:01:14,337 - __main__ - DEBUG - Connection successful
+2025-03-06 18:01:14,338 - werkzeug - INFO - 192.168.2.61 - - [06/Mar/2025 18:01:14] "GET /test_printer/RICOH%20MP%20C3003%20%5B002673B8A832%5D HTTP/1.1" 200 -
+2025-03-06 18:01:16,202 - __main__ - DEBUG - Testing connection to printer at 192.168.2.55:631
+2025-03-06 18:01:16,213 - __main__ - DEBUG - Connection successful
+2025-03-06 18:01:16,214 - __main__ - DEBUG - Attempting to print /var/folders/fc/spkfv8c979s35ntl2cgd6cc40000gn/T/printit_uploads/fb0434c9-ceac-496e-99f8-b66eb839bad4.jpeg to RICOH MP C3003 [002673B8A832]
+2025-03-06 18:01:16,220 - __main__ - DEBUG - File /var/folders/fc/spkfv8c979s35ntl2cgd6cc40000gn/T/printit_uploads/fb0434c9-ceac-496e-99f8-b66eb839bad4.jpeg has mime type: image/jpeg
+2025-03-06 18:01:16,220 - __main__ - INFO - Converting image /var/folders/fc/spkfv8c979s35ntl2cgd6cc40000gn/T/printit_uploads/fb0434c9-ceac-496e-99f8-b66eb839bad4.jpeg to PDF
+2025-03-06 18:01:16,239 - PIL.TiffImagePlugin - DEBUG - tag: MPFVersion (45056) - type: undefined (7) - value: b'0100'
+2025-03-06 18:01:16,239 - PIL.TiffImagePlugin - DEBUG - tag: NumberOfImages (45057) - type: long (4) - value: b'\x00\x00\x00\x02'
+2025-03-06 18:01:16,239 - PIL.TiffImagePlugin - DEBUG - tag: MPEntry (45058) - type: undefined (7) Tag Location: 46 - Data Location: 50 - value: b'\x00\x03\x00\x00\x00\x1af\xe0\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x039m\x00\x1a?\t\x00\x00\x00\x00'
+2025-03-06 18:01:16,300 - PIL.Image - DEBUG - Importing BlpImagePlugin
+2025-03-06 18:01:16,300 - PIL.Image - DEBUG - Importing BmpImagePlugin
+2025-03-06 18:01:16,300 - PIL.Image - DEBUG - Importing BufrStubImagePlugin
+2025-03-06 18:01:16,301 - PIL.Image - DEBUG - Importing CurImagePlugin
+2025-03-06 18:01:16,301 - PIL.Image - DEBUG - Importing DcxImagePlugin
+2025-03-06 18:01:16,301 - PIL.Image - DEBUG - Importing DdsImagePlugin
+2025-03-06 18:01:16,302 - PIL.Image - DEBUG - Importing EpsImagePlugin
+2025-03-06 18:01:16,302 - PIL.Image - DEBUG - Importing FitsImagePlugin
+2025-03-06 18:01:16,302 - PIL.Image - DEBUG - Importing FitsStubImagePlugin
+2025-03-06 18:01:16,302 - PIL.Image - DEBUG - Importing FliImagePlugin
+2025-03-06 18:01:16,303 - PIL.Image - DEBUG - Importing FpxImagePlugin
+2025-03-06 18:01:16,303 - PIL.Image - DEBUG - Image: failed to import FpxImagePlugin: No module named 'olefile'
+2025-03-06 18:01:16,303 - PIL.Image - DEBUG - Importing FtexImagePlugin
+2025-03-06 18:01:16,303 - PIL.Image - DEBUG - Importing GbrImagePlugin
+2025-03-06 18:01:16,303 - PIL.Image - DEBUG - Importing GifImagePlugin
+2025-03-06 18:01:16,303 - PIL.Image - DEBUG - Importing GribStubImagePlugin
+2025-03-06 18:01:16,304 - PIL.Image - DEBUG - Importing Hdf5StubImagePlugin
+2025-03-06 18:01:16,304 - PIL.Image - DEBUG - Importing IcnsImagePlugin
+2025-03-06 18:01:16,305 - PIL.Image - DEBUG - Importing IcoImagePlugin
+2025-03-06 18:01:16,305 - PIL.Image - DEBUG - Importing ImImagePlugin
+2025-03-06 18:01:16,305 - PIL.Image - DEBUG - Importing ImtImagePlugin
+2025-03-06 18:01:16,306 - PIL.Image - DEBUG - Importing IptcImagePlugin
+2025-03-06 18:01:16,306 - PIL.Image - DEBUG - Importing JpegImagePlugin
+2025-03-06 18:01:16,306 - PIL.Image - DEBUG - Importing Jpeg2KImagePlugin
+2025-03-06 18:01:16,306 - PIL.Image - DEBUG - Importing McIdasImagePlugin
+2025-03-06 18:01:16,306 - PIL.Image - DEBUG - Importing MicImagePlugin
+2025-03-06 18:01:16,307 - PIL.Image - DEBUG - Image: failed to import MicImagePlugin: No module named 'olefile'
+2025-03-06 18:01:16,307 - PIL.Image - DEBUG - Importing MpegImagePlugin
+2025-03-06 18:01:16,307 - PIL.Image - DEBUG - Importing MpoImagePlugin
+2025-03-06 18:01:16,307 - PIL.Image - DEBUG - Importing MspImagePlugin
+2025-03-06 18:01:16,307 - PIL.Image - DEBUG - Importing PalmImagePlugin
+2025-03-06 18:01:16,308 - PIL.Image - DEBUG - Importing PcdImagePlugin
+2025-03-06 18:01:16,308 - PIL.Image - DEBUG - Importing PcxImagePlugin
+2025-03-06 18:01:16,308 - PIL.Image - DEBUG - Importing PdfImagePlugin
+2025-03-06 18:01:16,313 - PIL.Image - DEBUG - Importing PixarImagePlugin
+2025-03-06 18:01:16,313 - PIL.Image - DEBUG - Importing PngImagePlugin
+2025-03-06 18:01:16,313 - PIL.Image - DEBUG - Importing PpmImagePlugin
+2025-03-06 18:01:16,313 - PIL.Image - DEBUG - Importing PsdImagePlugin
+2025-03-06 18:01:16,314 - PIL.Image - DEBUG - Importing SgiImagePlugin
+2025-03-06 18:01:16,314 - PIL.Image - DEBUG - Importing SpiderImagePlugin
+2025-03-06 18:01:16,314 - PIL.Image - DEBUG - Importing SunImagePlugin
+2025-03-06 18:01:16,314 - PIL.Image - DEBUG - Importing TgaImagePlugin
+2025-03-06 18:01:16,314 - PIL.Image - DEBUG - Importing TiffImagePlugin
+2025-03-06 18:01:16,314 - PIL.Image - DEBUG - Importing WebPImagePlugin
+2025-03-06 18:01:16,321 - PIL.Image - DEBUG - Importing WmfImagePlugin
+2025-03-06 18:01:16,321 - PIL.Image - DEBUG - Importing XbmImagePlugin
+2025-03-06 18:01:16,321 - PIL.Image - DEBUG - Importing XpmImagePlugin
+2025-03-06 18:01:16,322 - PIL.Image - DEBUG - Importing XVThumbImagePlugin
+2025-03-06 18:01:16,376 - __main__ - INFO - Successfully converted image to PDF: /var/folders/fc/spkfv8c979s35ntl2cgd6cc40000gn/T/printit_uploads/fb0434c9-ceac-496e-99f8-b66eb839bad4.pdf
+2025-03-06 18:01:16,376 - __main__ - INFO - Using converted document: /var/folders/fc/spkfv8c979s35ntl2cgd6cc40000gn/T/printit_uploads/fb0434c9-ceac-496e-99f8-b66eb839bad4.pdf
+2025-03-06 18:01:16,376 - __main__ - DEBUG - Trying CUPS command: lp -d RICOH MP C3003 [002673B8A832] -o raw /var/folders/fc/spkfv8c979s35ntl2cgd6cc40000gn/T/printit_uploads/fb0434c9-ceac-496e-99f8-b66eb839bad4.pdf
+2025-03-06 18:01:16,425 - __main__ - WARNING - CUPS printing failed: Command '['lp', '-d', 'RICOH MP C3003 [002673B8A832]', '-o', 'raw', '/var/folders/fc/spkfv8c979s35ntl2cgd6cc40000gn/T/printit_uploads/fb0434c9-ceac-496e-99f8-b66eb839bad4.pdf']' returned non-zero exit status 1., trying lpr...
+2025-03-06 18:01:16,425 - __main__ - DEBUG - Running command: lpr -P RICOH MP C3003 [002673B8A832] /var/folders/fc/spkfv8c979s35ntl2cgd6cc40000gn/T/printit_uploads/fb0434c9-ceac-496e-99f8-b66eb839bad4.pdf
+2025-03-06 18:01:16,444 - __main__ - DEBUG - Command output: 
+2025-03-06 18:01:16,444 - __main__ - WARNING - Command stderr: lpr: No such file or directory
+
+2025-03-06 18:01:16,444 - __main__ - INFO - Successfully printed fb0434c9-ceac-496e-99f8-b66eb839bad4.jpeg to RICOH MP C3003 [002673B8A832]
+2025-03-06 18:01:16,446 - werkzeug - INFO - 192.168.2.61 - - [06/Mar/2025 18:01:16] "POST /upload HTTP/1.1" 200 -
+2025-03-06 18:02:33,490 - asyncio - DEBUG - Using selector: KqueueSelector
+2025-03-06 18:02:36,500 - __main__ - DEBUG - Testing connection to printer at 192.168.2.61:631
+2025-03-06 18:02:36,501 - __main__ - DEBUG - Connection successful
+2025-03-06 18:02:36,503 - werkzeug - INFO - 192.168.2.61 - - [06/Mar/2025 18:02:36] "GET /test_printer/Brother%20DCP-L2550DW%20series%20%40%20Maulik’s%20MacBook%20Pro HTTP/1.1" 200 -
+2025-03-06 18:02:51,281 - asyncio - DEBUG - Using selector: KqueueSelector
+2025-03-06 18:02:54,286 - __main__ - DEBUG - Testing connection to printer at 192.168.2.61:631
+2025-03-06 18:02:54,288 - __main__ - DEBUG - Connection successful
+2025-03-06 18:02:54,289 - werkzeug - INFO - 192.168.2.61 - - [06/Mar/2025 18:02:54] "GET /test_printer/Brother%20DCP-L2550DW%20series%20%40%20Maulik’s%20MacBook%20Pro HTTP/1.1" 200 -
+2025-03-06 18:02:57,780 - __main__ - DEBUG - File saved to /var/folders/fc/spkfv8c979s35ntl2cgd6cc40000gn/T/printit_uploads/38785bca-a118-4074-9bc5-1a979196887b.png
+2025-03-06 18:02:57,781 - __main__ - DEBUG - File size: 232954 bytes
+2025-03-06 18:02:57,781 - __main__ - DEBUG - File is readable
+2025-03-06 18:02:57,781 - __main__ - INFO - Starting print job: File=38785bca-a118-4074-9bc5-1a979196887b.png (232954 bytes), Printer=Brother DCP-L2550DW series @ Maulik’s MacBook Pro
+2025-03-06 18:02:57,784 - asyncio - DEBUG - Using selector: KqueueSelector
+2025-03-06 18:03:00,794 - __main__ - DEBUG - Testing connection to printer at 192.168.2.61:631
+2025-03-06 18:03:00,795 - __main__ - DEBUG - Connection successful
+2025-03-06 18:03:00,796 - __main__ - DEBUG - Attempting to print /var/folders/fc/spkfv8c979s35ntl2cgd6cc40000gn/T/printit_uploads/38785bca-a118-4074-9bc5-1a979196887b.png to Brother DCP-L2550DW series @ Maulik’s MacBook Pro
+2025-03-06 18:03:00,796 - __main__ - DEBUG - File /var/folders/fc/spkfv8c979s35ntl2cgd6cc40000gn/T/printit_uploads/38785bca-a118-4074-9bc5-1a979196887b.png has mime type: image/png
+2025-03-06 18:03:00,796 - __main__ - INFO - Converting image /var/folders/fc/spkfv8c979s35ntl2cgd6cc40000gn/T/printit_uploads/38785bca-a118-4074-9bc5-1a979196887b.png to PDF
+2025-03-06 18:03:00,796 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-06 18:03:00,798 - PIL.PngImagePlugin - DEBUG - STREAM b'iCCP' 41 3147
+2025-03-06 18:03:00,798 - PIL.PngImagePlugin - DEBUG - iCCP profile name b'ICC Profile'
+2025-03-06 18:03:00,799 - PIL.PngImagePlugin - DEBUG - Compression method 0
+2025-03-06 18:03:00,799 - PIL.PngImagePlugin - DEBUG - STREAM b'eXIf' 3200 138
+2025-03-06 18:03:00,799 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 3350 9
+2025-03-06 18:03:00,799 - PIL.PngImagePlugin - DEBUG - STREAM b'iTXt' 3371 472
+2025-03-06 18:03:00,799 - PIL.PngImagePlugin - DEBUG - STREAM b'iDOT' 3855 28
+2025-03-06 18:03:00,799 - PIL.PngImagePlugin - DEBUG - b'iDOT' 3855 28 (unknown)
+2025-03-06 18:03:00,799 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 3895 16384
+2025-03-06 18:03:00,953 - __main__ - INFO - Successfully converted image to PDF: /var/folders/fc/spkfv8c979s35ntl2cgd6cc40000gn/T/printit_uploads/38785bca-a118-4074-9bc5-1a979196887b.pdf
+2025-03-06 18:03:00,953 - __main__ - INFO - Using converted document: /var/folders/fc/spkfv8c979s35ntl2cgd6cc40000gn/T/printit_uploads/38785bca-a118-4074-9bc5-1a979196887b.pdf
+2025-03-06 18:03:00,953 - __main__ - DEBUG - Trying CUPS command: lp -d Brother DCP-L2550DW series @ Maulik’s MacBook Pro -o raw /var/folders/fc/spkfv8c979s35ntl2cgd6cc40000gn/T/printit_uploads/38785bca-a118-4074-9bc5-1a979196887b.pdf
+2025-03-06 18:03:01,019 - __main__ - WARNING - CUPS printing failed: Command '['lp', '-d', 'Brother DCP-L2550DW series @ Maulik’s MacBook Pro', '-o', 'raw', '/var/folders/fc/spkfv8c979s35ntl2cgd6cc40000gn/T/printit_uploads/38785bca-a118-4074-9bc5-1a979196887b.pdf']' returned non-zero exit status 1., trying lpr...
+2025-03-06 18:03:01,019 - __main__ - DEBUG - Running command: lpr -P Brother DCP-L2550DW series @ Maulik’s MacBook Pro /var/folders/fc/spkfv8c979s35ntl2cgd6cc40000gn/T/printit_uploads/38785bca-a118-4074-9bc5-1a979196887b.pdf
+2025-03-06 18:03:01,043 - __main__ - DEBUG - Command output: 
+2025-03-06 18:03:01,043 - __main__ - WARNING - Command stderr: lpr: No such file or directory
+
+2025-03-06 18:03:01,043 - __main__ - INFO - Successfully printed 38785bca-a118-4074-9bc5-1a979196887b.png to Brother DCP-L2550DW series @ Maulik’s MacBook Pro
+2025-03-06 18:03:01,043 - werkzeug - INFO - 192.168.2.61 - - [06/Mar/2025 18:03:01] "POST /upload HTTP/1.1" 200 -
+2025-03-06 18:03:07,534 - asyncio - DEBUG - Using selector: KqueueSelector
+2025-03-06 18:03:10,543 - __main__ - DEBUG - Testing connection to printer at 192.168.2.55:631
+2025-03-06 18:03:10,556 - __main__ - DEBUG - Connection successful
+2025-03-06 18:03:10,557 - werkzeug - INFO - 192.168.2.61 - - [06/Mar/2025 18:03:10] "GET /test_printer/RICOH%20MP%20C3003%20%5B002673B8A832%5D HTTP/1.1" 200 -
+2025-03-06 18:03:23,166 - asyncio - DEBUG - Using selector: KqueueSelector
+2025-03-06 18:03:26,171 - __main__ - DEBUG - Testing connection to printer at 192.168.2.55:631
+2025-03-06 18:03:26,184 - __main__ - DEBUG - Connection successful
+2025-03-06 18:03:26,186 - werkzeug - INFO - 192.168.2.61 - - [06/Mar/2025 18:03:26] "GET /test_printer/RICOH%20MP%20C3003%20%5B002673B8A832%5D HTTP/1.1" 200 -
+2025-03-06 18:03:27,935 - __main__ - DEBUG - File saved to /var/folders/fc/spkfv8c979s35ntl2cgd6cc40000gn/T/printit_uploads/be7a8f7f-4ed0-43ba-9690-473c9035fdf7.png
+2025-03-06 18:03:27,936 - __main__ - DEBUG - File size: 232954 bytes
+2025-03-06 18:03:27,936 - __main__ - DEBUG - File is readable
+2025-03-06 18:03:27,936 - __main__ - INFO - Starting print job: File=be7a8f7f-4ed0-43ba-9690-473c9035fdf7.png (232954 bytes), Printer=RICOH MP C3003 [002673B8A832]
+2025-03-06 18:03:27,940 - asyncio - DEBUG - Using selector: KqueueSelector
+2025-03-06 18:03:30,949 - __main__ - DEBUG - Testing connection to printer at 192.168.2.55:631
+2025-03-06 18:03:30,968 - __main__ - DEBUG - Connection successful
+2025-03-06 18:03:30,969 - __main__ - DEBUG - Attempting to print /var/folders/fc/spkfv8c979s35ntl2cgd6cc40000gn/T/printit_uploads/be7a8f7f-4ed0-43ba-9690-473c9035fdf7.png to RICOH MP C3003 [002673B8A832]
+2025-03-06 18:03:30,969 - __main__ - DEBUG - File /var/folders/fc/spkfv8c979s35ntl2cgd6cc40000gn/T/printit_uploads/be7a8f7f-4ed0-43ba-9690-473c9035fdf7.png has mime type: image/png
+2025-03-06 18:03:30,969 - __main__ - INFO - Converting image /var/folders/fc/spkfv8c979s35ntl2cgd6cc40000gn/T/printit_uploads/be7a8f7f-4ed0-43ba-9690-473c9035fdf7.png to PDF
+2025-03-06 18:03:30,970 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-06 18:03:30,970 - PIL.PngImagePlugin - DEBUG - STREAM b'iCCP' 41 3147
+2025-03-06 18:03:30,970 - PIL.PngImagePlugin - DEBUG - iCCP profile name b'ICC Profile'
+2025-03-06 18:03:30,970 - PIL.PngImagePlugin - DEBUG - Compression method 0
+2025-03-06 18:03:30,971 - PIL.PngImagePlugin - DEBUG - STREAM b'eXIf' 3200 138
+2025-03-06 18:03:30,971 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 3350 9
+2025-03-06 18:03:30,971 - PIL.PngImagePlugin - DEBUG - STREAM b'iTXt' 3371 472
+2025-03-06 18:03:30,971 - PIL.PngImagePlugin - DEBUG - STREAM b'iDOT' 3855 28
+2025-03-06 18:03:30,971 - PIL.PngImagePlugin - DEBUG - b'iDOT' 3855 28 (unknown)
+2025-03-06 18:03:30,971 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 3895 16384
+2025-03-06 18:03:31,125 - __main__ - INFO - Successfully converted image to PDF: /var/folders/fc/spkfv8c979s35ntl2cgd6cc40000gn/T/printit_uploads/be7a8f7f-4ed0-43ba-9690-473c9035fdf7.pdf
+2025-03-06 18:03:31,125 - __main__ - INFO - Using converted document: /var/folders/fc/spkfv8c979s35ntl2cgd6cc40000gn/T/printit_uploads/be7a8f7f-4ed0-43ba-9690-473c9035fdf7.pdf
+2025-03-06 18:03:31,125 - __main__ - DEBUG - Trying CUPS command: lp -d RICOH MP C3003 [002673B8A832] -o raw /var/folders/fc/spkfv8c979s35ntl2cgd6cc40000gn/T/printit_uploads/be7a8f7f-4ed0-43ba-9690-473c9035fdf7.pdf
+2025-03-06 18:03:31,152 - __main__ - WARNING - CUPS printing failed: Command '['lp', '-d', 'RICOH MP C3003 [002673B8A832]', '-o', 'raw', '/var/folders/fc/spkfv8c979s35ntl2cgd6cc40000gn/T/printit_uploads/be7a8f7f-4ed0-43ba-9690-473c9035fdf7.pdf']' returned non-zero exit status 1., trying lpr...
+2025-03-06 18:03:31,152 - __main__ - DEBUG - Running command: lpr -P RICOH MP C3003 [002673B8A832] /var/folders/fc/spkfv8c979s35ntl2cgd6cc40000gn/T/printit_uploads/be7a8f7f-4ed0-43ba-9690-473c9035fdf7.pdf
+2025-03-06 18:03:31,173 - __main__ - DEBUG - Command output: 
+2025-03-06 18:03:31,173 - __main__ - WARNING - Command stderr: lpr: No such file or directory
+
+2025-03-06 18:03:31,173 - __main__ - INFO - Successfully printed be7a8f7f-4ed0-43ba-9690-473c9035fdf7.png to RICOH MP C3003 [002673B8A832]
+2025-03-06 18:03:31,174 - werkzeug - INFO - 192.168.2.61 - - [06/Mar/2025 18:03:31] "POST /upload HTTP/1.1" 200 -
+2025-03-06 18:13:26,710 - werkzeug - WARNING -  * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+2025-03-06 18:13:26,711 - werkzeug - INFO -  * Running on http://192.168.2.61:8000/ (Press CTRL+C to quit)
+2025-03-06 18:13:26,711 - werkzeug - INFO -  * Restarting with stat
+2025-03-06 18:13:26,837 - werkzeug - WARNING -  * Debugger is active!
+2025-03-06 18:13:26,843 - werkzeug - INFO -  * Debugger PIN: 472-275-242
+2025-03-06 18:13:34,287 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 18:13:34] "GET / HTTP/1.1" 200 -
+2025-03-06 18:13:34,499 - asyncio - DEBUG - Using selector: KqueueSelector
+2025-03-06 18:13:37,510 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 18:13:37] "GET /discover_printers HTTP/1.1" 200 -
+2025-03-06 18:13:40,244 - asyncio - DEBUG - Using selector: KqueueSelector
+2025-03-06 18:13:43,251 - __main__ - DEBUG - Testing connection to printer at 192.168.2.55:631
+2025-03-06 18:13:43,255 - __main__ - DEBUG - Connection successful
+2025-03-06 18:13:43,256 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 18:13:43] "GET /test_printer/RICOH%20MP%20C3003%20%5B002673B8A832%5D HTTP/1.1" 200 -
+2025-03-06 18:13:47,369 - __main__ - DEBUG - File saved to /var/folders/fc/spkfv8c979s35ntl2cgd6cc40000gn/T/printit_uploads/a522d86d-33c5-429e-84a8-3739a6aed464.png
+2025-03-06 18:13:47,369 - __main__ - DEBUG - File size: 175200 bytes
+2025-03-06 18:13:47,369 - __main__ - DEBUG - File is readable
+2025-03-06 18:13:47,369 - __main__ - INFO - Starting print job: File=a522d86d-33c5-429e-84a8-3739a6aed464.png (175200 bytes), Printer=RICOH MP C3003 [002673B8A832]
+2025-03-06 18:13:47,372 - asyncio - DEBUG - Using selector: KqueueSelector
+2025-03-06 18:13:50,379 - __main__ - DEBUG - Testing connection to printer at 192.168.2.55:631
+2025-03-06 18:13:50,386 - __main__ - DEBUG - Connection successful
+2025-03-06 18:13:50,386 - __main__ - DEBUG - Attempting to print /var/folders/fc/spkfv8c979s35ntl2cgd6cc40000gn/T/printit_uploads/a522d86d-33c5-429e-84a8-3739a6aed464.png to RICOH MP C3003 [002673B8A832]
+2025-03-06 18:13:50,394 - __main__ - DEBUG - File /var/folders/fc/spkfv8c979s35ntl2cgd6cc40000gn/T/printit_uploads/a522d86d-33c5-429e-84a8-3739a6aed464.png has mime type: image/png
+2025-03-06 18:13:50,394 - __main__ - INFO - Converting image /var/folders/fc/spkfv8c979s35ntl2cgd6cc40000gn/T/printit_uploads/a522d86d-33c5-429e-84a8-3739a6aed464.png to PDF
+2025-03-06 18:13:50,411 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-06 18:13:50,411 - PIL.PngImagePlugin - DEBUG - STREAM b'iCCP' 41 3147
+2025-03-06 18:13:50,411 - PIL.PngImagePlugin - DEBUG - iCCP profile name b'ICC Profile'
+2025-03-06 18:13:50,411 - PIL.PngImagePlugin - DEBUG - Compression method 0
+2025-03-06 18:13:50,411 - PIL.PngImagePlugin - DEBUG - STREAM b'eXIf' 3200 138
+2025-03-06 18:13:50,411 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 3350 9
+2025-03-06 18:13:50,411 - PIL.PngImagePlugin - DEBUG - STREAM b'iTXt' 3371 472
+2025-03-06 18:13:50,411 - PIL.PngImagePlugin - DEBUG - STREAM b'iDOT' 3855 28
+2025-03-06 18:13:50,411 - PIL.PngImagePlugin - DEBUG - b'iDOT' 3855 28 (unknown)
+2025-03-06 18:13:50,411 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 3895 16384
+2025-03-06 18:13:50,512 - PIL.Image - DEBUG - Importing BlpImagePlugin
+2025-03-06 18:13:50,513 - PIL.Image - DEBUG - Importing BmpImagePlugin
+2025-03-06 18:13:50,513 - PIL.Image - DEBUG - Importing BufrStubImagePlugin
+2025-03-06 18:13:50,514 - PIL.Image - DEBUG - Importing CurImagePlugin
+2025-03-06 18:13:50,514 - PIL.Image - DEBUG - Importing DcxImagePlugin
+2025-03-06 18:13:50,514 - PIL.Image - DEBUG - Importing DdsImagePlugin
+2025-03-06 18:13:50,515 - PIL.Image - DEBUG - Importing EpsImagePlugin
+2025-03-06 18:13:50,515 - PIL.Image - DEBUG - Importing FitsImagePlugin
+2025-03-06 18:13:50,515 - PIL.Image - DEBUG - Importing FitsStubImagePlugin
+2025-03-06 18:13:50,516 - PIL.Image - DEBUG - Importing FliImagePlugin
+2025-03-06 18:13:50,516 - PIL.Image - DEBUG - Importing FpxImagePlugin
+2025-03-06 18:13:50,516 - PIL.Image - DEBUG - Image: failed to import FpxImagePlugin: No module named 'olefile'
+2025-03-06 18:13:50,516 - PIL.Image - DEBUG - Importing FtexImagePlugin
+2025-03-06 18:13:50,517 - PIL.Image - DEBUG - Importing GbrImagePlugin
+2025-03-06 18:13:50,517 - PIL.Image - DEBUG - Importing GifImagePlugin
+2025-03-06 18:13:50,517 - PIL.Image - DEBUG - Importing GribStubImagePlugin
+2025-03-06 18:13:50,517 - PIL.Image - DEBUG - Importing Hdf5StubImagePlugin
+2025-03-06 18:13:50,517 - PIL.Image - DEBUG - Importing IcnsImagePlugin
+2025-03-06 18:13:50,518 - PIL.Image - DEBUG - Importing IcoImagePlugin
+2025-03-06 18:13:50,518 - PIL.Image - DEBUG - Importing ImImagePlugin
+2025-03-06 18:13:50,519 - PIL.Image - DEBUG - Importing ImtImagePlugin
+2025-03-06 18:13:50,520 - PIL.Image - DEBUG - Importing IptcImagePlugin
+2025-03-06 18:13:50,520 - PIL.Image - DEBUG - Importing JpegImagePlugin
+2025-03-06 18:13:50,520 - PIL.Image - DEBUG - Importing Jpeg2KImagePlugin
+2025-03-06 18:13:50,520 - PIL.Image - DEBUG - Importing McIdasImagePlugin
+2025-03-06 18:13:50,520 - PIL.Image - DEBUG - Importing MicImagePlugin
+2025-03-06 18:13:50,520 - PIL.Image - DEBUG - Image: failed to import MicImagePlugin: No module named 'olefile'
+2025-03-06 18:13:50,520 - PIL.Image - DEBUG - Importing MpegImagePlugin
+2025-03-06 18:13:50,521 - PIL.Image - DEBUG - Importing MpoImagePlugin
+2025-03-06 18:13:50,521 - PIL.Image - DEBUG - Importing MspImagePlugin
+2025-03-06 18:13:50,521 - PIL.Image - DEBUG - Importing PalmImagePlugin
+2025-03-06 18:13:50,522 - PIL.Image - DEBUG - Importing PcdImagePlugin
+2025-03-06 18:13:50,522 - PIL.Image - DEBUG - Importing PcxImagePlugin
+2025-03-06 18:13:50,522 - PIL.Image - DEBUG - Importing PdfImagePlugin
+2025-03-06 18:13:50,526 - PIL.Image - DEBUG - Importing PixarImagePlugin
+2025-03-06 18:13:50,527 - PIL.Image - DEBUG - Importing PngImagePlugin
+2025-03-06 18:13:50,527 - PIL.Image - DEBUG - Importing PpmImagePlugin
+2025-03-06 18:13:50,527 - PIL.Image - DEBUG - Importing PsdImagePlugin
+2025-03-06 18:13:50,527 - PIL.Image - DEBUG - Importing SgiImagePlugin
+2025-03-06 18:13:50,527 - PIL.Image - DEBUG - Importing SpiderImagePlugin
+2025-03-06 18:13:50,527 - PIL.Image - DEBUG - Importing SunImagePlugin
+2025-03-06 18:13:50,528 - PIL.Image - DEBUG - Importing TgaImagePlugin
+2025-03-06 18:13:50,528 - PIL.Image - DEBUG - Importing TiffImagePlugin
+2025-03-06 18:13:50,528 - PIL.Image - DEBUG - Importing WebPImagePlugin
+2025-03-06 18:13:50,531 - PIL.Image - DEBUG - Importing WmfImagePlugin
+2025-03-06 18:13:50,532 - PIL.Image - DEBUG - Importing XbmImagePlugin
+2025-03-06 18:13:50,532 - PIL.Image - DEBUG - Importing XpmImagePlugin
+2025-03-06 18:13:50,533 - PIL.Image - DEBUG - Importing XVThumbImagePlugin
+2025-03-06 18:13:50,565 - __main__ - INFO - Successfully converted image to PDF: /var/folders/fc/spkfv8c979s35ntl2cgd6cc40000gn/T/printit_uploads/a522d86d-33c5-429e-84a8-3739a6aed464.pdf
+2025-03-06 18:13:50,565 - __main__ - INFO - Using converted document: /var/folders/fc/spkfv8c979s35ntl2cgd6cc40000gn/T/printit_uploads/a522d86d-33c5-429e-84a8-3739a6aed464.pdf
+2025-03-06 18:13:50,565 - __main__ - DEBUG - Running print helper script: /Users/maulikpatel/WifiPrinter/print_helper.sh
+2025-03-06 18:13:50,754 - __main__ - INFO - Print helper script executed successfully
+2025-03-06 18:13:50,755 - __main__ - INFO - Successfully printed a522d86d-33c5-429e-84a8-3739a6aed464.png to RICOH MP C3003 [002673B8A832]
+2025-03-06 18:13:50,755 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 18:13:50] "POST /upload HTTP/1.1" 200 -
+2025-03-06 18:14:28,873 - __main__ - DEBUG - File saved to /var/folders/fc/spkfv8c979s35ntl2cgd6cc40000gn/T/printit_uploads/a4aa36f7-db5c-4938-9d10-ac06bc00c8b8.png
+2025-03-06 18:14:28,873 - __main__ - DEBUG - File size: 175200 bytes
+2025-03-06 18:14:28,873 - __main__ - DEBUG - File is readable
+2025-03-06 18:14:28,873 - __main__ - INFO - Starting print job: File=a4aa36f7-db5c-4938-9d10-ac06bc00c8b8.png (175200 bytes), Printer=RICOH MP C3003 [002673B8A832]
+2025-03-06 18:14:28,876 - asyncio - DEBUG - Using selector: KqueueSelector
+2025-03-06 18:14:31,883 - __main__ - DEBUG - Testing connection to printer at 192.168.2.55:631
+2025-03-06 18:14:31,894 - __main__ - DEBUG - Connection successful
+2025-03-06 18:14:31,895 - __main__ - DEBUG - Attempting to print /var/folders/fc/spkfv8c979s35ntl2cgd6cc40000gn/T/printit_uploads/a4aa36f7-db5c-4938-9d10-ac06bc00c8b8.png to RICOH MP C3003 [002673B8A832]
+2025-03-06 18:14:31,895 - __main__ - DEBUG - File /var/folders/fc/spkfv8c979s35ntl2cgd6cc40000gn/T/printit_uploads/a4aa36f7-db5c-4938-9d10-ac06bc00c8b8.png has mime type: image/png
+2025-03-06 18:14:31,895 - __main__ - INFO - Converting image /var/folders/fc/spkfv8c979s35ntl2cgd6cc40000gn/T/printit_uploads/a4aa36f7-db5c-4938-9d10-ac06bc00c8b8.png to PDF
+2025-03-06 18:14:31,896 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-06 18:14:31,896 - PIL.PngImagePlugin - DEBUG - STREAM b'iCCP' 41 3147
+2025-03-06 18:14:31,896 - PIL.PngImagePlugin - DEBUG - iCCP profile name b'ICC Profile'
+2025-03-06 18:14:31,896 - PIL.PngImagePlugin - DEBUG - Compression method 0
+2025-03-06 18:14:31,896 - PIL.PngImagePlugin - DEBUG - STREAM b'eXIf' 3200 138
+2025-03-06 18:14:31,897 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 3350 9
+2025-03-06 18:14:31,897 - PIL.PngImagePlugin - DEBUG - STREAM b'iTXt' 3371 472
+2025-03-06 18:14:31,897 - PIL.PngImagePlugin - DEBUG - STREAM b'iDOT' 3855 28
+2025-03-06 18:14:31,897 - PIL.PngImagePlugin - DEBUG - b'iDOT' 3855 28 (unknown)
+2025-03-06 18:14:31,897 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 3895 16384
+2025-03-06 18:14:32,055 - __main__ - INFO - Successfully converted image to PDF: /var/folders/fc/spkfv8c979s35ntl2cgd6cc40000gn/T/printit_uploads/a4aa36f7-db5c-4938-9d10-ac06bc00c8b8.pdf
+2025-03-06 18:14:32,055 - __main__ - INFO - Using converted document: /var/folders/fc/spkfv8c979s35ntl2cgd6cc40000gn/T/printit_uploads/a4aa36f7-db5c-4938-9d10-ac06bc00c8b8.pdf
+2025-03-06 18:14:32,056 - __main__ - DEBUG - Running print helper script: /Users/maulikpatel/WifiPrinter/print_helper.sh
+2025-03-06 18:14:32,099 - __main__ - INFO - Print helper script executed successfully
+2025-03-06 18:14:32,099 - __main__ - INFO - Successfully printed a4aa36f7-db5c-4938-9d10-ac06bc00c8b8.png to RICOH MP C3003 [002673B8A832]
+2025-03-06 18:14:32,099 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 18:14:32] "POST /upload HTTP/1.1" 200 -
+2025-03-06 18:16:29,750 - werkzeug - WARNING -  * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+2025-03-06 18:16:29,750 - werkzeug - INFO -  * Running on http://192.168.2.61:8000/ (Press CTRL+C to quit)
+2025-03-06 18:16:29,751 - werkzeug - INFO -  * Restarting with stat
+2025-03-06 18:16:29,875 - werkzeug - WARNING -  * Debugger is active!
+2025-03-06 18:16:29,881 - werkzeug - INFO -  * Debugger PIN: 472-275-242
+2025-03-06 18:16:37,913 - werkzeug - INFO - 192.168.2.61 - - [06/Mar/2025 18:16:37] "GET / HTTP/1.1" 200 -
+2025-03-06 18:16:37,934 - asyncio - DEBUG - Using selector: KqueueSelector
+2025-03-06 18:16:40,944 - werkzeug - INFO - 192.168.2.61 - - [06/Mar/2025 18:16:40] "GET /discover_printers HTTP/1.1" 200 -
+2025-03-06 18:16:44,198 - asyncio - DEBUG - Using selector: KqueueSelector
+2025-03-06 18:16:47,207 - __main__ - DEBUG - Testing connection to printer at 192.168.2.55:631
+2025-03-06 18:16:47,218 - __main__ - DEBUG - Connection successful
+2025-03-06 18:16:47,219 - werkzeug - INFO - 192.168.2.61 - - [06/Mar/2025 18:16:47] "GET /test_printer/RICOH%20MP%20C3003%20%5B002673B8A832%5D HTTP/1.1" 200 -
+2025-03-06 18:16:52,003 - __main__ - DEBUG - File saved to /var/folders/fc/spkfv8c979s35ntl2cgd6cc40000gn/T/printit_uploads/dad2be64-27a6-4039-b4a7-948101f5e04c.pdf
+2025-03-06 18:16:52,003 - __main__ - DEBUG - File size: 502036 bytes
+2025-03-06 18:16:52,003 - __main__ - DEBUG - File is readable
+2025-03-06 18:16:52,003 - __main__ - INFO - Starting print job: File=dad2be64-27a6-4039-b4a7-948101f5e04c.pdf (502036 bytes), Printer=RICOH MP C3003 [002673B8A832]
+2025-03-06 18:16:52,006 - asyncio - DEBUG - Using selector: KqueueSelector
+2025-03-06 18:16:55,013 - __main__ - DEBUG - Testing connection to printer at 192.168.2.55:631
+2025-03-06 18:16:55,022 - __main__ - DEBUG - Connection successful
+2025-03-06 18:16:55,022 - __main__ - DEBUG - Attempting to print /var/folders/fc/spkfv8c979s35ntl2cgd6cc40000gn/T/printit_uploads/dad2be64-27a6-4039-b4a7-948101f5e04c.pdf to RICOH MP C3003 [002673B8A832]
+2025-03-06 18:16:55,027 - __main__ - DEBUG - File /var/folders/fc/spkfv8c979s35ntl2cgd6cc40000gn/T/printit_uploads/dad2be64-27a6-4039-b4a7-948101f5e04c.pdf has mime type: application/pdf
+2025-03-06 18:16:55,027 - __main__ - DEBUG - Running print helper script: /Users/maulikpatel/WifiPrinter/print_helper.sh
+2025-03-06 18:16:55,077 - __main__ - INFO - Print helper script executed successfully
+2025-03-06 18:16:55,077 - __main__ - INFO - Successfully printed dad2be64-27a6-4039-b4a7-948101f5e04c.pdf to RICOH MP C3003 [002673B8A832]
+2025-03-06 18:16:55,077 - werkzeug - INFO - 192.168.2.61 - - [06/Mar/2025 18:16:55] "POST /upload HTTP/1.1" 200 -
+2025-03-06 18:23:35,130 - werkzeug - WARNING -  * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+2025-03-06 18:23:35,130 - werkzeug - INFO -  * Running on http://192.168.2.61:8000/ (Press CTRL+C to quit)
+2025-03-06 18:23:35,131 - werkzeug - INFO -  * Restarting with stat
+2025-03-06 18:23:35,258 - werkzeug - WARNING -  * Debugger is active!
+2025-03-06 18:23:35,263 - werkzeug - INFO -  * Debugger PIN: 472-275-242
+2025-03-06 18:23:39,225 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 18:23:39] "GET / HTTP/1.1" 200 -
+2025-03-06 18:23:39,247 - asyncio - DEBUG - Using selector: KqueueSelector
+2025-03-06 18:23:39,247 - asyncio - DEBUG - Using selector: KqueueSelector
+2025-03-06 18:23:41,260 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 18:23:41] "GET /discover_printers HTTP/1.1" 200 -
+2025-03-06 18:23:41,261 - __main__ - DEBUG - Testing connection to printer at 192.168.2.55:631
+2025-03-06 18:23:41,274 - __main__ - DEBUG - Connection successful
+2025-03-06 18:23:41,275 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 18:23:41] "GET /test_printer/RICOH_MP_C3003__002673B8A832_ HTTP/1.1" 200 -
+2025-03-06 18:23:47,250 - __main__ - DEBUG - File saved to /var/folders/fc/spkfv8c979s35ntl2cgd6cc40000gn/T/printit_uploads/c287e86d-152a-4010-b755-374c17229a32.pdf
+2025-03-06 18:23:47,250 - __main__ - INFO - Direct printing job: File=c287e86d-152a-4010-b755-374c17229a32.pdf, Size=502036 bytes
+2025-03-06 18:23:47,250 - __main__ - INFO - Using static printer: RICOH_MP_C3003__002673B8A832_
+2025-03-06 18:23:47,250 - __main__ - DEBUG - Testing connection to printer at 192.168.2.55:631
+2025-03-06 18:23:47,264 - __main__ - DEBUG - Connection successful
+2025-03-06 18:23:47,264 - __main__ - DEBUG - Attempting to print /var/folders/fc/spkfv8c979s35ntl2cgd6cc40000gn/T/printit_uploads/c287e86d-152a-4010-b755-374c17229a32.pdf to RICOH_MP_C3003__002673B8A832_
+2025-03-06 18:23:47,270 - __main__ - DEBUG - File /var/folders/fc/spkfv8c979s35ntl2cgd6cc40000gn/T/printit_uploads/c287e86d-152a-4010-b755-374c17229a32.pdf has mime type: application/pdf
+2025-03-06 18:23:47,271 - __main__ - DEBUG - Running print helper script: /Users/maulikpatel/WifiPrinter/print_helper.sh
+2025-03-06 18:23:47,333 - __main__ - INFO - Print helper script executed successfully
+2025-03-06 18:23:47,334 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 18:23:47] "POST /print_direct HTTP/1.1" 200 -
+2025-03-06 18:41:08,474 - werkzeug - INFO -  * Detected change in '/Users/maulikpatel/WifiPrinter/printit.py', reloading
+2025-03-06 18:41:08,514 - werkzeug - INFO -  * Restarting with stat
+2025-03-06 18:41:08,765 - werkzeug - WARNING -  * Debugger is active!
+2025-03-06 18:41:08,771 - werkzeug - INFO -  * Debugger PIN: 472-275-242
+2025-03-06 18:41:28,718 - werkzeug - WARNING -  * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+2025-03-06 18:41:28,719 - werkzeug - INFO -  * Running on http://192.168.2.61:8000/ (Press CTRL+C to quit)
+2025-03-06 18:41:28,719 - werkzeug - INFO -  * Restarting with stat
+2025-03-06 18:41:28,869 - werkzeug - WARNING -  * Debugger is active!
+2025-03-06 18:41:28,875 - werkzeug - INFO -  * Debugger PIN: 472-275-242
+2025-03-06 18:41:32,411 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 18:41:32] "GET / HTTP/1.1" 200 -
+2025-03-06 18:41:32,510 - asyncio - DEBUG - Using selector: KqueueSelector
+2025-03-06 18:41:32,522 - asyncio - DEBUG - Using selector: KqueueSelector
+2025-03-06 18:41:34,525 - __main__ - DEBUG - Testing connection to printer at 192.168.2.55:631
+2025-03-06 18:41:34,531 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 18:41:34] "GET /discover_printers HTTP/1.1" 200 -
+2025-03-06 18:41:34,535 - __main__ - DEBUG - Connection successful
+2025-03-06 18:41:34,535 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 18:41:34] "GET /test_printer/RICOH_MP_C3003__002673B8A832_ HTTP/1.1" 200 -
+2025-03-06 18:41:34,847 - asyncio - DEBUG - Using selector: KqueueSelector
+2025-03-06 18:41:36,851 - __main__ - DEBUG - Testing connection to printer at 192.168.2.55:631
+2025-03-06 18:41:36,866 - __main__ - DEBUG - Connection successful
+2025-03-06 18:41:36,867 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 18:41:36] "GET /test_printer/RICOH_MP_C3003__002673B8A832_ HTTP/1.1" 200 -
+2025-03-09 16:30:41,064 - werkzeug - WARNING -  * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+2025-03-09 16:30:41,064 - werkzeug - INFO -  * Running on http://192.168.2.30:8000/ (Press CTRL+C to quit)
+2025-03-09 16:30:41,065 - werkzeug - INFO -  * Restarting with stat
+2025-03-09 16:30:41,197 - werkzeug - WARNING -  * Debugger is active!
+2025-03-09 16:30:41,203 - werkzeug - INFO -  * Debugger PIN: 107-496-815
+2025-03-09 16:30:49,490 - werkzeug - INFO - 192.168.2.30 - - [09/Mar/2025 16:30:49] "GET / HTTP/1.1" 200 -
+2025-03-09 16:30:49,585 - asyncio - DEBUG - Using selector: KqueueSelector
+2025-03-09 16:30:49,586 - asyncio - DEBUG - Using selector: KqueueSelector
+2025-03-09 16:30:49,632 - werkzeug - INFO - 192.168.2.30 - - [09/Mar/2025 16:30:49] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-03-09 16:30:51,593 - werkzeug - INFO - 192.168.2.30 - - [09/Mar/2025 16:30:51] "GET /discover_printers HTTP/1.1" 200 -
+2025-03-09 16:30:51,593 - __main__ - DEBUG - Testing connection to printer at 2.tcp.ngrok.io:16344
+2025-03-09 16:30:51,661 - __main__ - DEBUG - Connection successful
+2025-03-09 16:30:51,662 - werkzeug - INFO - 192.168.2.30 - - [09/Mar/2025 16:30:51] "GET /test_printer/RICOH_MP_C3003__002673B8A832_ HTTP/1.1" 200 -
+2025-03-09 16:30:55,235 - asyncio - DEBUG - Using selector: KqueueSelector
+2025-03-09 16:30:57,244 - __main__ - DEBUG - Testing connection to printer at 2.tcp.ngrok.io:16344
+2025-03-09 16:30:57,280 - __main__ - DEBUG - Connection successful
+2025-03-09 16:30:57,281 - werkzeug - INFO - 192.168.2.30 - - [09/Mar/2025 16:30:57] "GET /test_printer/RICOH_MP_C3003__002673B8A832_ HTTP/1.1" 200 -
+2025-03-09 16:33:15,153 - werkzeug - WARNING -  * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+2025-03-09 16:33:15,153 - werkzeug - INFO -  * Running on http://192.168.2.30:8000/ (Press CTRL+C to quit)
+2025-03-09 16:33:15,153 - werkzeug - INFO -  * Restarting with stat
+2025-03-09 16:33:15,280 - werkzeug - WARNING -  * Debugger is active!
+2025-03-09 16:33:15,286 - werkzeug - INFO -  * Debugger PIN: 107-496-815
+2025-03-09 16:33:20,416 - werkzeug - INFO - 192.168.2.30 - - [09/Mar/2025 16:33:20] "GET / HTTP/1.1" 200 -
+2025-03-09 16:33:20,459 - __main__ - DEBUG - Testing connection to printer at 2.tcp.ngrok.io:16344
+2025-03-09 16:33:20,462 - werkzeug - INFO - 192.168.2.30 - - [09/Mar/2025 16:33:20] "GET /discover_printers HTTP/1.1" 200 -
+2025-03-09 16:33:20,519 - __main__ - DEBUG - Connection successful
+2025-03-09 16:33:20,520 - werkzeug - INFO - 192.168.2.30 - - [09/Mar/2025 16:33:20] "GET /test_printer/RICOH_MP_C3003__002673B8A832_ HTTP/1.1" 200 -
+2025-03-09 16:33:22,468 - __main__ - DEBUG - Testing connection to printer at 2.tcp.ngrok.io:16344
+2025-03-09 16:33:22,509 - __main__ - DEBUG - Connection successful
+2025-03-09 16:33:22,511 - werkzeug - INFO - 192.168.2.30 - - [09/Mar/2025 16:33:22] "GET /test_printer/RICOH_MP_C3003__002673B8A832_ HTTP/1.1" 200 -
+2025-03-09 16:33:30,887 - __main__ - DEBUG - File saved to /var/folders/fc/spkfv8c979s35ntl2cgd6cc40000gn/T/printit_uploads/ea1e79a7-dd64-47c0-a732-01fb405d1757.png
+2025-03-09 16:33:30,887 - __main__ - INFO - Direct printing job: File=ea1e79a7-dd64-47c0-a732-01fb405d1757.png, Size=3989583 bytes
+2025-03-09 16:33:30,887 - __main__ - INFO - Using static printer: RICOH_MP_C3003__002673B8A832_
+2025-03-09 16:33:30,887 - __main__ - DEBUG - Testing connection to printer at 2.tcp.ngrok.io:16344
+2025-03-09 16:33:30,928 - __main__ - DEBUG - Connection successful
+2025-03-09 16:33:30,928 - __main__ - DEBUG - Attempting to print /var/folders/fc/spkfv8c979s35ntl2cgd6cc40000gn/T/printit_uploads/ea1e79a7-dd64-47c0-a732-01fb405d1757.png to RICOH_MP_C3003__002673B8A832_
+2025-03-09 16:33:30,931 - __main__ - DEBUG - File /var/folders/fc/spkfv8c979s35ntl2cgd6cc40000gn/T/printit_uploads/ea1e79a7-dd64-47c0-a732-01fb405d1757.png has mime type: image/png
+2025-03-09 16:33:30,932 - __main__ - INFO - Converting image /var/folders/fc/spkfv8c979s35ntl2cgd6cc40000gn/T/printit_uploads/ea1e79a7-dd64-47c0-a732-01fb405d1757.png to PDF
+2025-03-09 16:33:30,948 - PIL.PngImagePlugin - DEBUG - STREAM b'IHDR' 16 13
+2025-03-09 16:33:30,948 - PIL.PngImagePlugin - DEBUG - STREAM b'gAMA' 41 4
+2025-03-09 16:33:30,948 - PIL.PngImagePlugin - DEBUG - STREAM b'cHRM' 57 32
+2025-03-09 16:33:30,948 - PIL.PngImagePlugin - DEBUG - STREAM b'bKGD' 101 6
+2025-03-09 16:33:30,948 - PIL.PngImagePlugin - DEBUG - b'bKGD' 101 6 (unknown)
+2025-03-09 16:33:30,948 - PIL.PngImagePlugin - DEBUG - STREAM b'pHYs' 119 9
+2025-03-09 16:33:30,948 - PIL.PngImagePlugin - DEBUG - STREAM b'IDAT' 140 32768
+2025-03-09 16:33:31,186 - PIL.PngImagePlugin - DEBUG - STREAM b'tEXt' 3989481 37
+2025-03-09 16:33:31,186 - PIL.PngImagePlugin - DEBUG - STREAM b'tEXt' 3989530 37
+2025-03-09 16:33:31,210 - PIL.Image - DEBUG - Importing BlpImagePlugin
+2025-03-09 16:33:31,211 - PIL.Image - DEBUG - Importing BmpImagePlugin
+2025-03-09 16:33:31,211 - PIL.Image - DEBUG - Importing BufrStubImagePlugin
+2025-03-09 16:33:31,212 - PIL.Image - DEBUG - Importing CurImagePlugin
+2025-03-09 16:33:31,212 - PIL.Image - DEBUG - Importing DcxImagePlugin
+2025-03-09 16:33:31,212 - PIL.Image - DEBUG - Importing DdsImagePlugin
+2025-03-09 16:33:31,213 - PIL.Image - DEBUG - Importing EpsImagePlugin
+2025-03-09 16:33:31,213 - PIL.Image - DEBUG - Importing FitsImagePlugin
+2025-03-09 16:33:31,214 - PIL.Image - DEBUG - Importing FitsStubImagePlugin
+2025-03-09 16:33:31,214 - PIL.Image - DEBUG - Importing FliImagePlugin
+2025-03-09 16:33:31,214 - PIL.Image - DEBUG - Importing FpxImagePlugin
+2025-03-09 16:33:31,214 - PIL.Image - DEBUG - Image: failed to import FpxImagePlugin: No module named 'olefile'
+2025-03-09 16:33:31,214 - PIL.Image - DEBUG - Importing FtexImagePlugin
+2025-03-09 16:33:31,215 - PIL.Image - DEBUG - Importing GbrImagePlugin
+2025-03-09 16:33:31,215 - PIL.Image - DEBUG - Importing GifImagePlugin
+2025-03-09 16:33:31,215 - PIL.Image - DEBUG - Importing GribStubImagePlugin
+2025-03-09 16:33:31,215 - PIL.Image - DEBUG - Importing Hdf5StubImagePlugin
+2025-03-09 16:33:31,215 - PIL.Image - DEBUG - Importing IcnsImagePlugin
+2025-03-09 16:33:31,216 - PIL.Image - DEBUG - Importing IcoImagePlugin
+2025-03-09 16:33:31,217 - PIL.Image - DEBUG - Importing ImImagePlugin
+2025-03-09 16:33:31,217 - PIL.Image - DEBUG - Importing ImtImagePlugin
+2025-03-09 16:33:31,217 - PIL.Image - DEBUG - Importing IptcImagePlugin
+2025-03-09 16:33:31,218 - PIL.Image - DEBUG - Importing JpegImagePlugin
+2025-03-09 16:33:31,218 - PIL.Image - DEBUG - Importing Jpeg2KImagePlugin
+2025-03-09 16:33:31,218 - PIL.Image - DEBUG - Importing McIdasImagePlugin
+2025-03-09 16:33:31,218 - PIL.Image - DEBUG - Importing MicImagePlugin
+2025-03-09 16:33:31,218 - PIL.Image - DEBUG - Image: failed to import MicImagePlugin: No module named 'olefile'
+2025-03-09 16:33:31,218 - PIL.Image - DEBUG - Importing MpegImagePlugin
+2025-03-09 16:33:31,218 - PIL.Image - DEBUG - Importing MpoImagePlugin
+2025-03-09 16:33:31,218 - PIL.Image - DEBUG - Importing MspImagePlugin
+2025-03-09 16:33:31,219 - PIL.Image - DEBUG - Importing PalmImagePlugin
+2025-03-09 16:33:31,219 - PIL.Image - DEBUG - Importing PcdImagePlugin
+2025-03-09 16:33:31,220 - PIL.Image - DEBUG - Importing PcxImagePlugin
+2025-03-09 16:33:31,220 - PIL.Image - DEBUG - Importing PdfImagePlugin
+2025-03-09 16:33:31,224 - PIL.Image - DEBUG - Importing PixarImagePlugin
+2025-03-09 16:33:31,225 - PIL.Image - DEBUG - Importing PngImagePlugin
+2025-03-09 16:33:31,225 - PIL.Image - DEBUG - Importing PpmImagePlugin
+2025-03-09 16:33:31,225 - PIL.Image - DEBUG - Importing PsdImagePlugin
+2025-03-09 16:33:31,225 - PIL.Image - DEBUG - Importing SgiImagePlugin
+2025-03-09 16:33:31,225 - PIL.Image - DEBUG - Importing SpiderImagePlugin
+2025-03-09 16:33:31,225 - PIL.Image - DEBUG - Importing SunImagePlugin
+2025-03-09 16:33:31,226 - PIL.Image - DEBUG - Importing TgaImagePlugin
+2025-03-09 16:33:31,226 - PIL.Image - DEBUG - Importing TiffImagePlugin
+2025-03-09 16:33:31,226 - PIL.Image - DEBUG - Importing WebPImagePlugin
+2025-03-09 16:33:31,232 - PIL.Image - DEBUG - Importing WmfImagePlugin
+2025-03-09 16:33:31,233 - PIL.Image - DEBUG - Importing XbmImagePlugin
+2025-03-09 16:33:31,233 - PIL.Image - DEBUG - Importing XpmImagePlugin
+2025-03-09 16:33:31,234 - PIL.Image - DEBUG - Importing XVThumbImagePlugin
+2025-03-09 16:33:31,288 - __main__ - INFO - Successfully converted image to PDF: /var/folders/fc/spkfv8c979s35ntl2cgd6cc40000gn/T/printit_uploads/ea1e79a7-dd64-47c0-a732-01fb405d1757.pdf
+2025-03-09 16:33:31,288 - __main__ - INFO - Using converted document: /var/folders/fc/spkfv8c979s35ntl2cgd6cc40000gn/T/printit_uploads/ea1e79a7-dd64-47c0-a732-01fb405d1757.pdf
+2025-03-09 16:33:31,289 - __main__ - DEBUG - Running print helper script: /Users/maulikpatel/WifiPrinter/print_helper.sh
+2025-03-09 16:33:31,399 - __main__ - INFO - Print helper script executed successfully
+2025-03-09 16:33:31,400 - werkzeug - INFO - 192.168.2.30 - - [09/Mar/2025 16:33:31] "POST /print_direct HTTP/1.1" 200 -
+2025-03-09 16:45:59,207 - werkzeug - WARNING -  * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+2025-03-09 16:45:59,207 - werkzeug - INFO -  * Running on http://192.168.2.30:8000/ (Press CTRL+C to quit)
+2025-03-09 16:45:59,208 - werkzeug - INFO -  * Restarting with stat
+2025-03-09 16:45:59,331 - werkzeug - WARNING -  * Debugger is active!
+2025-03-09 16:45:59,337 - werkzeug - INFO -  * Debugger PIN: 107-496-815
+2025-03-09 16:46:02,538 - werkzeug - INFO - 192.168.2.30 - - [09/Mar/2025 16:46:02] "GET / HTTP/1.1" 200 -
+2025-03-09 16:46:02,558 - __main__ - DEBUG - Testing connection to printer at 2.tcp.ngrok.io:16344
+2025-03-09 16:46:02,561 - werkzeug - INFO - 192.168.2.30 - - [09/Mar/2025 16:46:02] "GET /discover_printers HTTP/1.1" 200 -
+2025-03-09 16:46:02,647 - __main__ - DEBUG - Connection successful
+2025-03-09 16:46:02,647 - werkzeug - INFO - 192.168.2.30 - - [09/Mar/2025 16:46:02] "GET /test_printer/RICOH_MP_C3003__002673B8A832_ HTTP/1.1" 200 -
+2025-03-09 16:46:04,269 - __main__ - DEBUG - Testing connection to printer at 2.tcp.ngrok.io:16344
+2025-03-09 16:46:04,307 - __main__ - DEBUG - Connection successful
+2025-03-09 16:46:04,309 - werkzeug - INFO - 192.168.2.30 - - [09/Mar/2025 16:46:04] "GET /test_printer/RICOH_MP_C3003__002673B8A832_ HTTP/1.1" 200 -
+2025-03-09 16:46:04,940 - __main__ - DEBUG - Testing connection to printer at 2.tcp.ngrok.io:16344
+2025-03-09 16:46:04,973 - __main__ - DEBUG - Connection successful
+2025-03-09 16:46:04,975 - werkzeug - INFO - 192.168.2.30 - - [09/Mar/2025 16:46:04] "GET /test_printer/RICOH_MP_C3003__002673B8A832_ HTTP/1.1" 200 -
+2025-03-09 16:46:05,105 - __main__ - DEBUG - Testing connection to printer at 2.tcp.ngrok.io:16344
+2025-03-09 16:46:05,137 - __main__ - DEBUG - Connection successful
+2025-03-09 16:46:05,139 - werkzeug - INFO - 192.168.2.30 - - [09/Mar/2025 16:46:05] "GET /test_printer/RICOH_MP_C3003__002673B8A832_ HTTP/1.1" 200 -
+2025-03-09 16:46:05,255 - __main__ - DEBUG - Testing connection to printer at 2.tcp.ngrok.io:16344
+2025-03-09 16:46:05,288 - __main__ - DEBUG - Connection successful
+2025-03-09 16:46:05,289 - werkzeug - INFO - 192.168.2.30 - - [09/Mar/2025 16:46:05] "GET /test_printer/RICOH_MP_C3003__002673B8A832_ HTTP/1.1" 200 -
+2025-03-09 16:46:05,407 - __main__ - DEBUG - Testing connection to printer at 2.tcp.ngrok.io:16344
+2025-03-09 16:46:05,440 - __main__ - DEBUG - Connection successful
+2025-03-09 16:46:05,441 - werkzeug - INFO - 192.168.2.30 - - [09/Mar/2025 16:46:05] "GET /test_printer/RICOH_MP_C3003__002673B8A832_ HTTP/1.1" 200 -
+2025-03-09 16:46:05,573 - __main__ - DEBUG - Testing connection to printer at 2.tcp.ngrok.io:16344
+2025-03-09 16:46:05,602 - __main__ - DEBUG - Connection successful
+2025-03-09 16:46:05,604 - werkzeug - INFO - 192.168.2.30 - - [09/Mar/2025 16:46:05] "GET /test_printer/RICOH_MP_C3003__002673B8A832_ HTTP/1.1" 200 -
+2025-03-09 16:46:05,722 - __main__ - DEBUG - Testing connection to printer at 2.tcp.ngrok.io:16344
+2025-03-09 16:46:05,751 - __main__ - DEBUG - Connection successful
+2025-03-09 16:46:05,753 - werkzeug - INFO - 192.168.2.30 - - [09/Mar/2025 16:46:05] "GET /test_printer/RICOH_MP_C3003__002673B8A832_ HTTP/1.1" 200 -

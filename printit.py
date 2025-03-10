@@ -47,8 +47,8 @@ class AirPrintListener:
 # Static printer configuration
 STATIC_PRINTER = {
     'name': "RICOH_MP_C3003__002673B8A832_",
-    'ip': "2.tcp.ngrok.io",             # changed
-    'port': 16344,                     # changed
+    'ip': "127.0.0.1",                        # Changed to localhost
+    'port': 631,                              # Changed to standard CUPS port
     'properties': {}
 }
 
@@ -220,37 +220,45 @@ echo "Print job sent. Check printer for output."
                     return False, f"Failed to print: {str(e)}, alternative method also failed: {str(alt_e)}"
         
         elif platform.system() == 'Linux':
-            # Using CUPS for Linux
-            printer_uri = f"ipp://{printer_info['ip']}:{printer_info['port']}/ipp/print"
-            
-            # Try to add the printer if it's not already configured
+            # Using local CUPS for Linux
             try:
-                add_cmd = ['lpadmin', '-p', printer_info['name'], '-v', printer_uri, '-E']
-                logger.debug(f"Running command: {' '.join(add_cmd)}")
-                subprocess.run(add_cmd, capture_output=True, text=True, timeout=30)
-            except subprocess.SubprocessError as e:
-                logger.warning(f"Error setting up printer: {e}")
-            
-            # Print the document
-            cmd = ['lp', '-d', printer_info['name'], document_path]
-            logger.debug(f"Running command: {' '.join(cmd)}")
-            try:
-                result = subprocess.run(cmd, capture_output=True, text=True, check=True, timeout=60)
-                logger.debug(f"Command output: {result.stdout}")
-                if result.stderr:
-                    logger.warning(f"Command stderr: {result.stderr}")
-                return True, f"Document sent to {printer_info['name']}"
-            except subprocess.SubprocessError as e:
+                # Try different printing methods based on available commands
+                if shutil.which('lp'):
+                    # Direct printing via local CUPS instead of adding printer
+                    cmd = ['lp', '-d', printer_info['name'], document_path]
+                    logger.debug(f"Running command: {' '.join(cmd)}")
+                    try:
+                        result = subprocess.run(cmd, capture_output=True, text=True, check=True, timeout=60)
+                        logger.debug(f"Command output: {result.stdout}")
+                        if result.stderr:
+                            logger.warning(f"Command stderr: {result.stderr}")
+                        return True, f"Document sent to {printer_info['name']}"
+                    except subprocess.SubprocessError as e:
+                        logger.error(f"Error printing document: {e}")
+                        # Try alternative method using CUPS directly
+                        alt_cmd = ['lpr', '-P', printer_info['name'], '-o', 'raw', document_path]
+                        logger.debug(f"Trying alternative command: {' '.join(alt_cmd)}")
+                        try:
+                            result = subprocess.run(alt_cmd, capture_output=True, text=True, check=True, timeout=60)
+                            return True, f"Document sent to {printer_info['name']} using alternative method"
+                        except subprocess.SubprocessError as alt_e:
+                            logger.error(f"Alternative print method failed: {alt_e}")
+                            return False, f"Failed to print: {str(e)}, alternative method also failed: {str(alt_e)}"
+                elif shutil.which('lpr'):
+                    alt_cmd = ['lpr', '-P', printer_info['name'], '-o', 'raw', document_path]
+                    logger.debug(f"Trying alternative command: {' '.join(alt_cmd)}")
+                    try:
+                        result = subprocess.run(alt_cmd, capture_output=True, text=True, check=True, timeout=60)
+                        return True, f"Document sent to {printer_info['name']} using alternative method"
+                    except subprocess.SubprocessError as alt_e:
+                        logger.error(f"Alternative print method failed: {alt_e}")
+                        return False, f"Failed to print: {str(e)}, alternative method also failed: {str(alt_e)}"
+                else:
+                    logger.error("No printing command (lp/lpr) found. Install cups or lpr package.")
+                    return False, "Printing tools not installed. Install CUPS or LPR."
+            except Exception as e:
                 logger.error(f"Error printing document: {e}")
-                # Try alternative method using CUPS directly
-                alt_cmd = ['lpr', '-P', printer_info['name'], '-o', 'raw', document_path]
-                logger.debug(f"Trying alternative command: {' '.join(alt_cmd)}")
-                try:
-                    result = subprocess.run(alt_cmd, capture_output=True, text=True, check=True, timeout=60)
-                    return True, f"Document sent to {printer_info['name']} using alternative method"
-                except subprocess.SubprocessError as alt_e:
-                    logger.error(f"Alternative print method failed: {alt_e}")
-                    return False, f"Failed to print: {str(e)}, alternative method also failed: {str(alt_e)}"
+                return False, f"Failed to print: {str(e)}"
         else:
             msg = f"Unsupported operating system: {platform.system()}"
             logger.error(msg)
@@ -558,7 +566,7 @@ def create_app():
         
         <div class="static-printer-info">
             <p><strong>Default Printer:</strong> RICOH_MP_C3003__002673B8A832_</p>
-            <p><strong>IP Address:</strong> 2.tcp.ngrok.io:16344</p>   <!-- changed -->
+            <p><strong>Server:</strong> localhost:631 (CUPS)</p>   <!-- changed -->
             <div id="defaultPrinterStatus" class="printer-status">
                 <span class="status-indicator status-unknown"></span>
                 <span>Status unknown</span>
